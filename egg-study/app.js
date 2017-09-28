@@ -12,37 +12,47 @@ const knex = require('knex')({
 });
 
 module.exports = app => {
+  const ctx = app.createAnonymousContext();
   app.beforeStart(function* () {
-    const ctx = app.createAnonymousContext();
-    const start = new Date();
-    const havesisters = yield app.mysql.query(knex.schema.hasTable('member').toString());
-    if (havesisters.length === 0) {
-      const userid = knex.schema.createTableIfNotExists('member', function(level) {
-        level.increments();
-        level.string('name').notNullable().defaultTo('');
-        level.integer('age').notNullable().defaultTo(0);
-        level.integer('classroom').notNullable().defaultTo(0);
-        level.string('teacher').notNullable().defaultTo('');
-        level.timestamp('create_at').defaultTo(knex.fn.now());
-        level.charset('utf8');
+    // -------------------------users--------------------------------
+
+    const haveusers = yield app.mysql.query(knex.schema.hasTable('users').toString());
+    if (haveusers.length === 0) {
+      const userid = knex.schema.createTableIfNotExists('users', function(table) {
+        table.increments();
+        table.string('mobile').notNullable().defaultTo('');
+        table.string('wechat').notNullable().defaultTo('');
+        table.string('name').notNullable().defaultTo('');
+        table.integer('number').notNullable().defaultTo(0);
+        table.timestamp('create_at').defaultTo(knex.fn.now());
+        table.boolean('type').notNullable().defaultTo(false);
+        table.charset('utf8');
       });
       yield app.mysql.query(userid.toString());
-
-      /* --------------------------------------------------------------
-      const uniqueName = knex.schema.alterTable('member', function(t) {
-        t.unique('name');
-      });
-      yield app.mysql.query(uniqueName.toString());
-      
-      ---------------- have the same function beside -----------------*/
-      yield ctx.helper.men(app, 'member', 'name');
-
     }
-    ctx.logger.warn('WARNNING!!!!');    
-    ctx.logger.info('some request data: %j', ctx.request.body);
-    ctx.logger.info(1000, Date.now() - start);
+
+    // -------------------------works------------------------------
+
+    const haveworks = yield app.mysql.query(knex.schema.hasTable('works').toString());
+    if (haveworks.length === 0) {
+      const photoid = knex.schema.createTableIfNotExists('works', function(level) {
+        level.increments();
+        level.string('userid').notNullable().defaultTo('');
+        level.string('url').notNullable().defaultTo('');
+        level.integer('number').notNullable().defaultTo(0);
+        level.string('mobiletype').notNullable().defaultTo('');
+        level.timestamp('create_at').defaultTo(knex.fn.now());
+        level.boolean('status').notNullable().defaultTo(false);
+        level.charset('utf8');
+      });
+      yield app.mysql.query(photoid.toString());
+
+      yield ctx.helper.unique(app, 'users', 'mobile');
+      yield ctx.helper.unique(app, 'users', 'wechat');
+      yield ctx.helper.unique(app, 'works', 'url');
+    }
+
+    // --------------------------------------------------------------
+
   });
-
-// ------both use 'knex.schema.alterTable',the second more simple-----
-
 };

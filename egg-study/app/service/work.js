@@ -1,10 +1,10 @@
 'use strict';
 
 module.exports = app => {
-  class Member extends app.Service {
+  class Work extends app.Service {
     * create(param) {
       try {
-        yield app.mysql.insert('member', param); // 'namelist' is the table name
+        yield app.mysql.insert('work', param); // 'namelist' is the table name
       } catch (e) {
         this.ctx.logger.error(e);
         return false;
@@ -15,7 +15,7 @@ module.exports = app => {
     * get(req) {
       let res;
       try {
-        res = yield app.mysql.get('member', req);
+        res = yield app.mysql.get('work', req);
       } catch (e) {
         this.ctx.logger.error(e);
         return false;
@@ -27,13 +27,13 @@ module.exports = app => {
       let text;
       try {
       /* 
-        text = yield app.mysql.select('member', { 
+        text = yield app.mysql.select('work', { 
           where: {
             name: [ 'Amy', '' ],
           },
         });
       */
-        text = yield app.mysql.select('member');
+        text = yield app.mysql.select('work');
       } catch (e) {
         this.ctx.logger.error(e);
         return false;
@@ -43,7 +43,7 @@ module.exports = app => {
 
     * delete(a) {
       try {
-        yield app.mysql.insert('member', a);
+        yield app.mysql.delete('work', a);
       } catch (e) {
         this.ctx.logger.error(e);
         return false;
@@ -53,7 +53,7 @@ module.exports = app => {
 
     * update(s) {
       try {
-        yield app.mysql.insert('member', s);
+        yield app.mysql.update('work', s);
       } catch (q) {
         this.ctx.logger.error(q);
         return false;
@@ -62,6 +62,6 @@ module.exports = app => {
     }
 
   }
-  return Member;
+  return Work;
 };
 
