@@ -2,9 +2,9 @@
 
 module.exports = app => {
   class Work extends app.Service {
-    * create(param) {
+    * userid(param) {
       try {
-        yield app.mysql.insert('work', param); // 'namelist' is the table name
+        yield app.mysql.insert('work', param);
       } catch (e) {
         this.ctx.logger.error(e);
         return false;
@@ -12,18 +12,17 @@ module.exports = app => {
       return true;
     }
 
-    * get(req) {
-      let res;
+    * url(param) {
       try {
-        res = yield app.mysql.get('work', req);
+        yield app.mysql.insert('work', param);
       } catch (e) {
         this.ctx.logger.error(e);
         return false;
       }
-      return res;
+      return true;
     }
 
-    * select() {
+    * list() {
       let text;
       try {
       /* 
@@ -41,21 +40,23 @@ module.exports = app => {
       return text;
     }
 
-    * delete(a) {
+    * vote() {
+      const conn = yield app.mysql.beginTransaction();
       try {
-        yield app.mysql.delete('work', a);
-      } catch (e) {
-        this.ctx.logger.error(e);
-        return false;
-      }
-      return true;
-    }
-
-    * update(s) {
-      try {
-        yield app.mysql.update('work', s);
-      } catch (q) {
-        this.ctx.logger.error(q);
+        yield conn.update('user', {
+          where: {
+            id: [],
+          },
+        });
+        yield conn.update('work', {
+          where: {
+            i: [ 'uerid' ],
+          },
+        });
+        yield conn.commit();
+      } catch (err) {
+        yield conn.rollback();
+        this.ctx.logger.error(err);
         return false;
       }
       return true;

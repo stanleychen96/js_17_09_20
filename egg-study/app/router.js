@@ -2,12 +2,31 @@
 
 module.exports = app => {
 
-  app.post('/m.g', 'work.get');
-  app.post('/m.c', 'work.create');
-  app.post('/m.u', 'work.update');
-  app.post('/m.d', 'work.delete');
-  app.post('/m.s', 'work.select');
+  // ------sign in------
+  app.post('/user/signin', '');
+  app.post('/user/setname', '');
+  app.post('/user/setheadpicture', '');
+  app.post('/mobile/set', '');
 
-  app.post('/after', 'lodash.after');
 
+  // ------login and use-------
+  app.post('/user/login', '');
+  // app.post('/user/comment', '');
+
+
+  // ------modify------
+  app.post('/mobile/modify', '');
+
+
+  // ************************ work **************************
+  app.post('/work/userid', '');
+  app.post('/work/url', '');
+
+  // ------check------
+  // app.post('/work/check', '');
+  // app.post('/work/modify', '');
+  app.post('/work/list', '');
+
+  // ------vote------
+  app.post('/work/vote', ''); // DDD
 };

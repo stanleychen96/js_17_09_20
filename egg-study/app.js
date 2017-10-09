@@ -23,7 +23,8 @@ module.exports = app => {
         table.string('mobile').notNullable().defaultTo('');
         table.string('wechat').notNullable().defaultTo('');
         table.string('name').notNullable().defaultTo('');
-        table.integer('number').notNullable().defaultTo(0);
+        table.string('headpicture').notNullable().defaultTo('');
+        table.integer('votenumber').notNullable().defaultTo(3);
         table.timestamp('create_at').defaultTo(knex.fn.now());
         table.boolean('type').notNullable().defaultTo(false);
         table.charset('utf8');
@@ -39,10 +40,9 @@ module.exports = app => {
         level.increments();
         level.string('userid').notNullable().defaultTo('');
         level.string('url').notNullable().defaultTo('');
-        level.integer('number').notNullable().defaultTo(0);
-        level.string('mobiletype').notNullable().defaultTo('');
+        level.integer('votebnumber').notNullable().defaultTo(0);
         level.timestamp('create_at').defaultTo(knex.fn.now());
-        level.boolean('status').notNullable().defaultTo(false);
+        level.boolean('status').notNullable().defaultTo(0);
         level.charset('utf8');
       });
       yield app.mysql.query(photoid.toString());
