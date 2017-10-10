@@ -1,0 +1,206 @@
+<style lang="less">
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: grey;
+  margin: 10px 150px;
+}
+
+.userlike {
+  display: flex;
+  flex-direction: column;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.useroutput-target {
+  color: blue;
+}
+
+.userback-ground {
+  color: yellow;
+}
+
+.radio-group {
+  margin: 20px ;
+}
+
+.freestyle {
+  background-color: red;
+  margin: 100px 50px; // '10px' is top and below, '12px' is left and right
+  padding: 5px 20px 40px 80px; // top,right,below,left
+  margin-top: 10px;
+}
+.view {
+  font-size: 30px;
+  display:flex;
+  justify-content: column;
+  align-items: center
+}
+.style-x {
+  border: 1px solid black;
+  border-radius: 10px; 
+}
+</style>
+
+
+<template>
+  <view>
+
+    <view class="userinfo">{{name}}</view>
+    <view class="userinfo">{{year}}</view>
+    
+    <view class="view">
+    <button type="warn" size="mini" plian="false" hover-class="none" bindtap="add"> {{count}} </button>
+    <text>{{usercount}}</text>
+    </view>
+
+    <view class="">
+      <checkbox-group bindchange="checkboxChange">
+        <label class="checkbox" wx:for="{{items}}">
+          <checkbox value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+        </label>
+      </checkbox-group>
+    </view>
+
+    <view>
+      <radio-group class="radio-group" bindchange="radioChange">
+        <label class="radio" wx:for="{{items}}">
+          <radio class="userlike" value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+        </label>
+      </radio-group>
+    </view>
+
+    <view class="section_gap">
+      <text class="section__title">min/max</text>
+      <view class="body-view">
+        <slider bindchange="slider4change" min="50" max="200" show-value/>
+      </view>
+    </view>
+
+    <view class="container">
+      <video src="{{src}}"></video>
+      <button bindtap="bindButtonTap">获取视频</button>
+    </view>
+
+    <view class="container style-x">
+      <image src="{{img}}"></image>
+      <button bindtap="bindButton2Tap">getimage</button>
+    </view>
+
+    <view>
+      <audio src="{{musicsrc}}" id="myAudio" controls loop></audio>
+      <button type="primary" bindtap="audioPlay">播放</button>
+      <button type="primary" bindtap="audioPause">暂停</button>
+      <button type="primary" bindtap="audio14">设置当前播放时间为14秒</button>
+      <button type="primary" bindtap="audioStart">回到开头</button>
+    </view>
+
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+export default class Index extends wepy.page {
+  config = {
+    navigationBarTitleText: 'personal information'
+  }
+
+  data = {
+    name: 'Chen',
+    year: '1996.5.6',
+    count: 0,
+    usercount: 3,
+    img: '',
+    src: '',
+    music: '',
+    items: [
+      { name: 'USA', value: '美国' },
+      { name: 'CHN', value: '中国', checked: 'true' },
+      { name: 'BRA', value: '巴西' },
+      { name: 'JPN', value: '日本' },
+      { name: 'ENG', value: '英国' },
+      { name: 'TUR', value: '法国' }
+    ],
+    musicsrc: '../music/谢安琪 - 钟无艳.mp3'
+
+  }
+
+  methods = {
+    add() {
+      let self = this
+      if (self.usercount < 1) {
+        console.log('error')
+      } else {
+        self.count++
+        self.usercount--
+      }
+    },
+
+    checkboxChange: function(e) {
+      console.log('checkbox发生change事件，携带value值为：', e.detail.value)
+    },
+
+    radioChange: function(e) {
+      console.log('radio发生change事件，携带value值为：', e.detail.value)
+    },
+
+    slider4change: function(e) {
+      console.log('slider发生change事件，携带value值为：', e.detail.value)
+    },
+
+    bindButtonTap: function() {
+      var that = this
+      wepy.chooseVideo({
+        sourceType: ['camera'],
+        maxDuration: 60,
+        camera: 'front',
+        success: function(res) {
+          that.src = res.tempFilePath
+          that.setData({
+            src: res.tempFilePath
+          })
+        }
+      })
+    },
+
+    bindButton2Tap: function() {
+      var that = this
+      wepy.chooseImage({
+        count: 1, // 默认9
+        sizeType: ['compressed'], // 可以指定是原图还是压缩图，默认二者都有
+        sourceType: ['album'], // 可以指定来源是相册还是相机，默认二者都有
+        success: function(res) {
+          that.img = res.tempFilePaths[0]
+          that.setData({
+            img: res.tempFilePaths[0]
+          })
+        }
+      })
+    },
+
+    audioPlay: function() {
+      this.audioCtx.play()
+    },
+    audioPause: function() {
+      this.audioCtx.pause()
+    },
+    audio14: function() {
+      this.audioCtx.seek(14)
+    },
+    audioStart: function() {
+      this.audioCtx.seek(0)
+    }
+  }
+
+  onLoad() {}
+
+  onReady(e) {
+    // 使用 wx.createAudioContext 获取 audio 上下文 context
+    this.audioCtx = wepy.createAudioContext('myAudio')
+  }
+}
+</script>

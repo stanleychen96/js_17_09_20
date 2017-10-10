@@ -1,0 +1,178 @@
+<style lang="less">
+.text {
+  display: flex;// 弹性布局
+  flex-direction: column; // 主轴方向:列
+  justify-content: center; // 设置主轴方向的对齐方式:居中
+  align-items: center; // 项目排列方式:居中
+}
+.control{
+  margin: 20px;
+  font-size: 28px;
+}
+.view {
+  display: flex;
+  bottom: 0;
+  width: 100%;
+  position: absolute;
+  justify-content: center;
+  margin-bottom: 10px;
+  font-size: 10px;
+  color:antiquewhite
+}
+.textcombine {
+  display: flex;
+  flex-direction: column; // 主轴方向
+  justify-content: center; // 对齐方式
+  align-items: center; // 纵向
+}
+
+.pic {
+  height: 30px;
+  width: 30px;
+  display: flex;
+  border: 1px solid gray;
+  border-radius: 100px
+}
+.word {
+  font-size: 20px;
+}
+.littleword {
+  font-size: 15px;
+}
+.marginzero {
+  margin:10px 0px;
+}
+.distance {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 100px 10px 100px;
+}
+.dis-six {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 60px 10px 60px;
+}
+
+.dis {
+  margin: 20px 80px 20px 20px;
+}
+
+.line {
+  width: 60px;
+  height: 1px;
+  background-color: gray;
+}
+
+.forher {
+  display: flex;
+  justify-content: center;
+  margin: 80px 60px 20px 60px;
+}
+
+.sixbox {
+  background: wheat;
+  height: 95px;
+  width: 95px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+.height {
+  height: 40px;
+  width: 40px;
+  padding: 10px;
+}
+.last {
+  margin: 100px 60px 20px 60px;
+}
+</style>
+<template>
+  <view>
+
+    <view class="text control">
+      <text>简单2步，选中心动好礼</text>
+    </view>
+
+    <view class="distance">
+      <image class="pic" src="{{send}}"></image>
+
+      <view class="textcombine">
+          <view class="line"></view>
+      </view>
+      <image class="pic" src="{{like}}"></image>
+
+      <view class="text">
+          <view class="line"></view>
+      </view>
+      <image class="pic" src="{{done}}"></image>
+    </view>
+
+    <view class="distance littleword">
+      <text>送给Ta</text>
+      <text>Ta喜欢的</text>
+      <text>完成</text>
+    </view>
+
+    <view class="forher">
+      <text>送她</text>   
+      <text>送他</text>
+    </view> 
+
+    <view class="row dis-six">
+      <view class="sixbox text word">
+        <image class="height" src="{{a}}"></image>
+        <text>自己</text>
+      </view>
+      <view class="sixbox text word">
+        <image class="height" src="{{b}}"></image>
+        <text>女票</text>
+      </view>
+      <view class="sixbox text word">
+        <image class="height" src="{{c}}"></image>
+        <text>闺蜜</text>
+      </view>
+    </view>
+
+    <view class="row dis-six">
+      <view class="sixbox text word">
+        <image class="height" src="{{d}}"></image>
+        <text>妈妈</text>
+      </view>
+      <view class="sixbox text word">
+        <image class="height" src="{{e}}"></image>
+        <text>长辈</text>
+      </view>
+      <view class="sixbox text word">
+        <image class="height" src="{{f}}"></image>
+        <text>同事</text>
+      </view>
+    </view>
+
+    <view class="view">
+      <text>先跳过，随便逛逛</text>
+    </view>
+  </view>
+</template>
+<script>
+import wepy from 'wepy'
+export default class Index extends wepy.page {
+  config = {
+    navigationBarTitleText: '礼物说'
+  }
+  data = {
+    send: '../image/头像.png',
+    like: '../image/礼物.png',
+    done: '../image/对钩.png',
+    a: '../image/xiangji.png',
+    b: '../image/钻戒.png',
+    c: '../image/口红.png',
+    d: '../image/鲜花.png',
+    e: '../image/送长辈.png',
+    f: '../image/qianbao.png'
+  }
+  methods = {}
+  onLoad() { }
+}
+</script>

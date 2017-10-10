@@ -1,0 +1,66 @@
+
+  <view>
+
+    <view class="text control">
+      <text>简单2步，选中心动好礼</text>
+    </view>
+
+    <view class="distance">
+      <image class="pic" src="{{send}}"/>
+
+      <view class="textcombine">
+          <view class="line"/>
+      </view>
+      <image class="pic" src="{{like}}"/>
+
+      <view class="text">
+          <view class="line"/>
+      </view>
+      <image class="pic" src="{{done}}"/>
+    </view>
+
+    <view class="distance littleword">
+      <text>送给Ta</text>
+      <text>Ta喜欢的</text>
+      <text>完成</text>
+    </view>
+
+    <view class="forher">
+      <text>送她</text>   
+      <text>送他</text>
+    </view> 
+
+    <view class="row dis-six">
+      <view class="sixbox text word">
+        <image class="height" src="{{a}}"/>
+        <text>自己</text>
+      </view>
+      <view class="sixbox text word">
+        <image class="height" src="{{b}}"/>
+        <text>女票</text>
+      </view>
+      <view class="sixbox text word">
+        <image class="height" src="{{c}}"/>
+        <text>闺蜜</text>
+      </view>
+    </view>
+
+    <view class="row dis-six">
+      <view class="sixbox text word">
+        <image class="height" src="{{d}}"/>
+        <text>妈妈</text>
+      </view>
+      <view class="sixbox text word">
+        <image class="height" src="{{e}}"/>
+        <text>长辈</text>
+      </view>
+      <view class="sixbox text word">
+        <image class="height" src="{{f}}"/>
+        <text>同事</text>
+      </view>
+    </view>
+
+    <view class="view">
+      <text>先跳过，随便逛逛</text>
+    </view>
+  </view>

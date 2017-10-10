@@ -1,0 +1,66 @@
+
+  <view>
+
+    <view class="text">
+      <text>choose your wanner</text>
+    </view>
+
+    <view class="avg distance">
+      <image class="pic cir" src="{{send}}"/>
+
+      <view class="text">
+        <view>
+          <view class="line"/>
+        </view>
+      </view>
+
+      <image class="pic cir" src="{{like}}"/>
+
+      <view class="text">
+        <view>
+          <view class="line"/>
+        </view>
+      </view>
+
+      <image class="pic cir" src="{{done}}"/>
+    </view>
+
+    <view class="avg distance word">
+      <text>sendforTA</text>
+      <text>helike</text>
+      <text>buyforTA</text>
+    </view>
+
+    <view class="he top">
+      <text>forher        forhim</text>
+    </view>
+
+    <view class="row distance avg">
+      <view class="sixbox text word">
+        <text>myself</text>
+      </view>
+      <view class="sixbox text word">
+        <text>girlfriend</text>
+      </view>
+      <view class="sixbox text word">
+        <text>closefriend</text>
+      </view>
+    </view>
+
+    <view class="row distance avg">
+      <view class="sixbox text word">
+        <text>mum</text>
+      </view>
+      <view class="sixbox text word">
+        <text>elder</text>
+      </view>
+      <view class="sixbox text word">
+        <text>colleague</text>
+      </view>
+    </view>
+
+    <view class="text last word">
+      <text>leave here</text>
+    </view>
+
+  </view>

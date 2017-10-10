@@ -1,0 +1,53 @@
+
+  <view>
+
+    <view class="userinfo">{{name}}</view>
+    <view class="userinfo">{{year}}</view>
+    
+    <view class="view">
+    <button type="warn" size="mini" plian="false" hover-class="none" bindtap="add"> {{count}} </button>
+    <text>{{usercount}}</text>
+    </view>
+
+    <view class="">
+      <checkbox-group bindchange="checkboxChange">
+        <label class="checkbox"  wx:for="{{items}}">
+          <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+        </label>
+      </checkbox-group>
+    </view>
+
+    <view>
+      <radio-group class="radio-group" bindchange="radioChange">
+        <label class="radio"  wx:for="{{items}}">
+          <radio class="userlike" value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+        </label>
+      </radio-group>
+    </view>
+
+    <view class="section_gap">
+      <text class="section__title">min/max</text>
+      <view class="body-view">
+        <slider bindchange="slider4change" min="50" max="200" show-value/>
+      </view>
+    </view>
+
+    <view class="container">
+      <video src="{{src}}"/>
+      <button bindtap="bindButtonTap">获取视频</button>
+    </view>
+
+    <view class="container style-x">
+      <image src="{{img}}"/>
+      <button bindtap="bindButton2Tap">getimage</button>
+    </view>
+
+    <view>
+      <audio src="{{musicsrc}}" id="myAudio" controls loop/>
+      <button type="primary" bindtap="audioPlay">播放</button>
+      <button type="primary" bindtap="audioPause">暂停</button>
+      <button type="primary" bindtap="audio14">设置当前播放时间为14秒</button>
+      <button type="primary" bindtap="audioStart">回到开头</button>
+    </view>
+
+  </view>
