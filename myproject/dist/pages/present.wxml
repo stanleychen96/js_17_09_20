@@ -8,27 +8,31 @@
     <view class="distance">
       <image class="pic" src="{{send}}"/>
 
-      <view class="textcombine">
-          <view class="line"/>
+      <view class="text">
+        <view class="line"/>
       </view>
       <image class="pic" src="{{like}}"/>
 
       <view class="text">
-          <view class="line"/>
+        <view class="line"/>
       </view>
       <image class="pic" src="{{done}}"/>
     </view>
 
-    <view class="distance littleword">
+    <view class="littleword">
       <text>送给Ta</text>
       <text>Ta喜欢的</text>
       <text>完成</text>
     </view>
 
-    <view class="forher">
-      <text>送她</text>   
-      <text>送他</text>
-    </view> 
+    <view class="forthem">
+      <view class="forher">
+        <text class="mar" bindtap="her" style="color: {{c1}}; border-bottom: 1px solid {{co1}}">送她</text>
+      </view>
+      <view class="forhim">
+        <text class="mar" bindtap="him" style="color: {{c2}}; border-bottom: 1px solid {{co2}}">送他</text>
+      </view>
+    </view>
 
     <view class="row dis-six">
       <view class="sixbox text word">
@@ -37,11 +41,11 @@
       </view>
       <view class="sixbox text word">
         <image class="height" src="{{b}}"/>
-        <text>女票</text>
+        <text>老婆/女票</text>
       </view>
       <view class="sixbox text word">
         <image class="height" src="{{c}}"/>
-        <text>闺蜜</text>
+        <text>姐妹/闺蜜</text>
       </view>
     </view>
 
