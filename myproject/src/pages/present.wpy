@@ -72,7 +72,7 @@
   display: flex;
   flex-direction: row;
 }
-.sixbox {
+.sixboxes {
   background: wheat;
   height: 5.2rem;
   width: 5.2rem;
@@ -95,7 +95,7 @@
   justify-content: center;
   margin-bottom: 10px;
   font-size: 10px;
-  color: antiquewhite
+  color: orange
 }
 
 </style>
@@ -128,45 +128,45 @@
 
     <view class="forthem">
       <view class="forher">
-        <text class="mar" @tap="her" style="color: {{c1}}; border-bottom: 1px solid {{co1}}">送她</text>
+        <text class="mar" @tap="her" style="color: {{woman}}; border-bottom: 1px solid {{wbottom}}">送她</text>
       </view>
       <view class="forhim">
-        <text class="mar" @tap="him" style="color: {{c2}}; border-bottom: 1px solid {{co2}}">送他</text>
+        <text class="mar" @tap="him" style="color: {{man}}; border-bottom: 1px solid {{mbottom}}">送他</text>
       </view>
     </view>
 
     <view class="row dis-six">
-      <view class="sixbox text word">
-        <image class="height" src="{{a}}"></image>
-        <text>自己</text>
+      <view class="sixboxes text word">
+        <image class="height" src="{{myself}}"></image>
+        <text>{{first}}</text>
       </view>
-      <view class="sixbox text word">
-        <image class="height" src="{{b}}"></image>
-        <text>老婆/女票</text>
+      <view class="sixboxes text word">
+        <image class="height" src="{{girlfriend}}"></image>
+        <text>{{second}}</text>
       </view>
-      <view class="sixbox text word">
-        <image class="height" src="{{c}}"></image>
-        <text>姐妹/闺蜜</text>
+      <view class="sixboxes text word">
+        <image class="height" src="{{closefriend}}"></image>
+        <text>{{third}}</text>
       </view>
     </view>
 
     <view class="row dis-six">
-      <view class="sixbox text word">
-        <image class="height" src="{{d}}"></image>
-        <text>妈妈</text>
+      <view class="sixboxes text word">
+        <image class="height" src="{{mum}}"></image>
+        <text>{{forth}}</text>
       </view>
-      <view class="sixbox text word">
-        <image class="height" src="{{e}}"></image>
-        <text>长辈</text>
+      <view class="sixboxes text word">
+        <image class="height" src="{{elder}}"></image>
+        <text>{{fifth}}</text>
       </view>
-      <view class="sixbox text word">
-        <image class="height" src="{{f}}"></image>
-        <text>同事</text>
+      <view class="sixboxes text word">
+        <image class="height" src="{{colleague}}"></image>
+        <text>{{sixth}}</text>
       </view>
     </view>
 
     <view class="view">
-      <text>先跳过，随便逛逛</text>
+      <text>先跳过，随便逛逛 →</text>
     </view>
   </view>
 </template>
@@ -177,46 +177,64 @@ export default class Index extends wepy.page {
     navigationBarTitleText: '礼物说'
   }
   data = {
-    send: '../image/头像.png',
-    like: '../image/礼物.png',
-    done: '../image/对钩.png',
-    a: '../image/xiangji.png',
-    b: '../image/钻戒.png',
-    c: '../image/口红.png',
-    d: '../image/鲜花.png',
-    e: '../image/送长辈.png',
-    f: '../image/qianbao.png',
-    c1: 'red',
-    co1: 'red',
-    c2: 'gray',
-    co2: 'gray'
+    send: '../image/head.png',
+    like: '../image/gift.png',
+    done: '../image/tick.png',
+    myself: '../image/camera.png',
+    girlfriend: '../image/diamondring.png',
+    closefriend: '../image/lipstick.png',
+    mum: '../image/flower.png',
+    elder: '../image/elder.png',
+    colleague: '../image/wallet.png',
+    woman: 'red',
+    wbottom: 'red',
+    man: 'gray',
+    mbottom: 'gray',
+    first: '自己',
+    second: '老婆/女票',
+    third: '姐妹/闺蜜',
+    forth: '妈妈',
+    fifth: '长辈',
+    sixth: '同事'
   }
   methods = {
     her() {
       let self = this
-      self.c1 = 'red'
-      self.co1 = 'red'
-      self.c2 = 'gray'
-      self.co2 = 'gray'
-      self.a = '../image/xiangji.png'
-      self.b = '../image/钻戒.png'
-      self.c = '../image/口红.png'
-      self.d = '../image/鲜花.png'
-      self.e = '../image/送长辈.png'
-      self.f = '../image/qianbao.png'
+      self.woman = 'red'
+      self.wbottom = 'red'
+      self.man = 'gray'
+      self.mbottom = 'gray'
+      self.myself = '../image/camera.png'
+      self.girlfriend = '../image/diamondring.png'
+      self.closefriend = '../image/lipstick.png'
+      self.mum = '../image/flower.png'
+      self.elder = '../image/elder.png'
+      self.colleague = '../image/wallet.png'
+      self.first = '自己'
+      self.second = '老婆/女票'
+      self.third = '姐妹/闺蜜'
+      self.forth = '妈妈'
+      self.fifth = '长辈'
+      self.sixth = '同事'
     },
     him() {
       let self = this
-      self.c1 = 'gray'
-      self.co1 = 'gray'
-      self.c2 = 'red'
-      self.co2 = 'red'
-      self.a = '../image/xiangji.png'
-      self.b = '../image/钻戒.png'
-      self.c = '../image/口红.png'
-      self.d = '../image/鲜花.png'
-      self.e = '../image/送长辈.png'
-      self.f = '../image/qianbao.png'
+      self.woman = 'gray'
+      self.wbottom = 'gray'
+      self.man = 'red'
+      self.mbottom = 'red'
+      self.myself = '../image/book.png'
+      self.girlfriend = '../image/scarf.png'
+      self.closefriend = '../image/billiards.png'
+      self.mum = '../image/watch.png'
+      self.elder = '../image/travel.png'
+      self.colleague = '../image/golf.png'
+      self.first = '自己'
+      self.second = '老公/男票'
+      self.third = '兄弟/基友'
+      self.forth = '爸爸'
+      self.fifth = '长辈'
+      self.sixth = '同事'
     }
 
   }

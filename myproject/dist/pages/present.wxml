@@ -27,44 +27,44 @@
 
     <view class="forthem">
       <view class="forher">
-        <text class="mar" bindtap="her" style="color: {{c1}}; border-bottom: 1px solid {{co1}}">送她</text>
+        <text class="mar" bindtap="her" style="color: {{woman}}; border-bottom: 1px solid {{wbottom}}">送她</text>
       </view>
       <view class="forhim">
-        <text class="mar" bindtap="him" style="color: {{c2}}; border-bottom: 1px solid {{co2}}">送他</text>
+        <text class="mar" bindtap="him" style="color: {{man}}; border-bottom: 1px solid {{mbottom}}">送他</text>
       </view>
     </view>
 
     <view class="row dis-six">
-      <view class="sixbox text word">
-        <image class="height" src="{{a}}"/>
-        <text>自己</text>
+      <view class="sixboxes text word">
+        <image class="height" src="{{myself}}"/>
+        <text>{{first}}</text>
       </view>
-      <view class="sixbox text word">
-        <image class="height" src="{{b}}"/>
-        <text>老婆/女票</text>
+      <view class="sixboxes text word">
+        <image class="height" src="{{girlfriend}}"/>
+        <text>{{second}}</text>
       </view>
-      <view class="sixbox text word">
-        <image class="height" src="{{c}}"/>
-        <text>姐妹/闺蜜</text>
+      <view class="sixboxes text word">
+        <image class="height" src="{{closefriend}}"/>
+        <text>{{third}}</text>
       </view>
     </view>
 
     <view class="row dis-six">
-      <view class="sixbox text word">
-        <image class="height" src="{{d}}"/>
-        <text>妈妈</text>
+      <view class="sixboxes text word">
+        <image class="height" src="{{mum}}"/>
+        <text>{{forth}}</text>
       </view>
-      <view class="sixbox text word">
-        <image class="height" src="{{e}}"/>
-        <text>长辈</text>
+      <view class="sixboxes text word">
+        <image class="height" src="{{elder}}"/>
+        <text>{{fifth}}</text>
       </view>
-      <view class="sixbox text word">
-        <image class="height" src="{{f}}"/>
-        <text>同事</text>
+      <view class="sixboxes text word">
+        <image class="height" src="{{colleague}}"/>
+        <text>{{sixth}}</text>
       </view>
     </view>
 
     <view class="view">
-      <text>先跳过，随便逛逛</text>
+      <text>先跳过，随便逛逛 →</text>
     </view>
   </view>
