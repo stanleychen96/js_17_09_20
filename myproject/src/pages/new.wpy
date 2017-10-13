@@ -1,0 +1,22 @@
+<style lang="less">
+.uselike {
+  display: flex;
+}
+</style>
+
+<template>
+  <view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+export default class Index extends wepy.page {
+  config = {
+    navigationBarTitleText: 'xxx'
+  }
+
+  onLoad() { }
+
+
+</script>
